@@ -17,6 +17,9 @@ import javax.swing.JOptionPane;
 public class DAOBaseJDBC {
     
      protected static Connection conn;
+     public static final String SUCESSO_LOGIN = "success";
+     public static final String FALHA_LOGIN = "failure";
+     
     
     static{
         try{

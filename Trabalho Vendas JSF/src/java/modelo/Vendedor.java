@@ -11,45 +11,47 @@ package modelo;
  */
 public class Vendedor {
     
-    private int idCliente;
-    private String nomeCliente;
-    private String usuario;
-    private String senha;
+    private int idVendedor;
+    private String nomeVendedor;
+    private String usuarioVendedor;
+    private String senhaVendedor;
 
     public Vendedor() {
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getIdVendedor() {
+        return idVendedor;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setIdVendedor(int idVendedor) {
+        this.idVendedor = idVendedor;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNomeVendedor() {
+        return nomeVendedor;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setNomeVendedor(String nomeVendedor) {
+        this.nomeVendedor = nomeVendedor;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUsuarioVendedor() {
+        return usuarioVendedor;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuarioVendedor(String usuarioVendedor) {
+        this.usuarioVendedor = usuarioVendedor;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSenhaVendedor() {
+        return senhaVendedor;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenhaVendedor(String senhaVendedor) {
+        this.senhaVendedor = senhaVendedor;
     }
+
+   
     
     
     

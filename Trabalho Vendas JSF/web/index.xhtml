@@ -6,35 +6,52 @@
     <h:head>
         <title>Página Inicial</title>
         <link href="css/bootstrap.min.css"  rel="stylesheet"/>
+        <link href="css/css-suporte.css"  rel="stylesheet"/>
     </h:head>
     <h:body>
         <div class="container">
             <div class="col-sm-10" style="width: 600px; margin-left: 250px; margin-top: 50px;">
                 <div class="jumbotron">
-                    <div class="form-group">
-                        <h1>Login</h1>
+                    <div class="form-group" align="center">
+                        <img src="img/sale02.png"  style="width: 200px; height: 200px; margin: auto"/>
+                      <!--  <h1 style="text-align: center">Vendedor</h1> -->
                     </div>
                     
-                    <h:form class="form-horizontal">
+                    <h:form class="form-horizontal" style="margin-left: 50px">
                         <div class="form-group input-group" >
-                            <h:inputText id="usuario" class="form-control">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user">
+                                    
+                                </span>
+                            </span>
+                            <h:inputText id="usuario" class="form-control" value="#{requisicaoLoginUsuario.usuario}">
                                 <f:passThroughAttribute name="placeholder" value="Enter User"/>
                             </h:inputText>
                         </div>
                         
                          <div class="form-group input-group" >
-                             <h:inputSecret id="senha" class="form-control">
+                             <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock">
+                                    
+                                </span>
+                            </span>
+                             <h:inputSecret id="senha" class="form-control" value="#{requisicaoLoginUsuario.senha}">
                                 <f:passThroughAttribute name="placeholder" value="Enter Pass"/>
                             </h:inputSecret>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group" style="margin-left: 297px;">
                             <h:selectBooleanCheckbox value="true" />&nbsp;
                             <h:outputLabel value=" Remember me" />
                         </div>
                         
-                        <div class="form-group">
-                            <h:commandButton value="Entrar" class="btn btn-primary"/>
+                        <div class="form-group" align="center">
+                            <h:commandButton value="Entrar" class="btn btn-primary btn-aumentar" 
+                                             action="#{requisicaoLoginUsuario.logar()}"/>
+                        </div>
+                        
+                        <div align="center">
+                            <h:commandLink value="Forget Password"/>
                         </div>
                         
                     </h:form>
