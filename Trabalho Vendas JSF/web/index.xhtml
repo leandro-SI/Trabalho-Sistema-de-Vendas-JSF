@@ -1,12 +1,50 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Página Inicial</title>
+        <link href="css/bootstrap.min.css"  rel="stylesheet"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <div class="container">
+            <div class="col-sm-10" style="width: 600px; margin-left: 250px; margin-top: 50px;">
+                <div class="jumbotron">
+                    <div class="form-group">
+                        <h1>Login</h1>
+                    </div>
+                    
+                    <h:form class="form-horizontal">
+                        <div class="form-group input-group" >
+                            <h:inputText id="usuario" class="form-control">
+                                <f:passThroughAttribute name="placeholder" value="Enter User"/>
+                            </h:inputText>
+                        </div>
+                        
+                         <div class="form-group input-group" >
+                             <h:inputSecret id="senha" class="form-control">
+                                <f:passThroughAttribute name="placeholder" value="Enter Pass"/>
+                            </h:inputSecret>
+                        </div>
+                        
+                        <div class="form-group">
+                            <h:selectBooleanCheckbox value="true" />&nbsp;
+                            <h:outputLabel value=" Remember me" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <h:commandButton value="Entrar" class="btn btn-primary"/>
+                        </div>
+                        
+                    </h:form>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <script src="js/jquery.min.js" type="text/javascript" ></script>
     </h:body>
 </html>
 
