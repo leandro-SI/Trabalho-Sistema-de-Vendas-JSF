@@ -44,6 +44,7 @@ public class IDEscopoRequisicaoUsuario {
             sessaoLoginUsuario.setLoginSessao(v.getUsuarioVendedor());
             sessaoLoginUsuario.setSenhaSessao(v.getSenhaVendedor());
             sessaoLoginUsuario.setTempoSessao(new GregorianCalendar().getTime());
+            System.out.println("Tempo: " + sessaoLoginUsuario.getTempoSessao());
             navegacao = DAOBaseJDBC.SUCESSO_LOGIN;
         }else{
             navegacao = DAOBaseJDBC.FALHA_LOGIN;

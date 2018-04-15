@@ -12,7 +12,7 @@ package modelo;
 public class Produto {
     
     private int idProduto;
-    private Categoria categoria;
+    private int idCategoria;
     private String nomeProduto;
     private int quantidadeProduto;
     private double preco;
@@ -24,16 +24,18 @@ public class Produto {
         return idProduto;
     }
 
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+    
+    
+
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
     }
 
     public String getNomeProduto() {

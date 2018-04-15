@@ -1,12 +1,80 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Caixa</title>
+        <title>Inicio - Caixa</title>
+        <link href="css/bootstrap.min.css"  rel="stylesheet"/>
+        <link href="css/css-suporte.css"  rel="stylesheet"/>
     </h:head>
     <h:body>
-        Bem vindo ao caixa...
+       
+        <h:form class="form-group">
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <h:commandLink class="navbar-brand" value="PDV - CAIXA LIVRE" action="pdv"/>
+                    </div>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <h:commandLink value="Cadastros" action="pdv"/>
+                        </li>
+                        <li>
+                            <h:commandLink value="Relatórios" action="pdv"/>
+                        </li>
+                        <li>
+                            <h:commandLink value="Estorno" action="pdv"/>
+                        </li>
+                        <li>
+                            <h:commandLink value="Compra" action="pdv"/>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+            <div align="center">
+                <h:outputLabel value="Funcionário: " style="font-size: 15pt">
+                    <h:outputText value="#{requisicaoLoginUsuario.sessaoLoginUsuario.nomeSessao}" 
+                                  style="color: blue"/>
+                </h:outputLabel><br/><br/>
+                
+                <div class="form-inline">                    
+                    <h:outputLabel value="Buscar Cliente: " style="font-size: 15pt"/>&nbsp;
+                    <h:inputText class="form-control" id="procuraCliente" value="#{clienteManageBean.cliente.cfp}">
+                        <f:passThroughAttribute name="placeholder" value="Busca por CPF"/>
+                        <f:ajax event="click" render="ajaxCliente"/>
+                    </h:inputText> &nbsp;
+                    
+                    <h:commandButton class="btn btn-primary" value="Buscar" action="#{clienteManageBean.validaCliente()}"/><br/><br/>
+                    <h:outputLabel value="Cliente: " style="font-size: 15pt">
+                        <h:outputText  id="ajaxCliente" value="#{clienteManageBean.cliente.nomeClente}" style="color: blue"/>
+       
+                    </h:outputLabel><br/><br/>
+                    
+                    <h:outputLabel value="Buscar Produto: " style="font-size: 15pt"/>&nbsp;
+                    <h:inputText class="form-control" id="procuraProduto" value="#{produtoManageBean.produto.nomeProduto}">
+                        <f:passThroughAttribute name="placeholder" value="Busca por Descrição"/>
+                        <f:ajax event="click" render="ajaxProduto"/>
+                    </h:inputText> &nbsp;
+                    
+                    <h:commandButton class="btn btn-primary" value="Buscar" action="#{produtoManageBean.validaProdutoDAO()}"/><br/><br/>
+                    <h:outputLabel value="Produto: " style="font-size: 15pt">
+                        <h:outputText  id="ajaxProduto" value="#{produtoManageBean.produto.nomeProduto}" style="color: blue"/>
+       
+                    </h:outputLabel><br/><br/>
+                    
+                </div>
+                
+                
+                
+            </div>
+            
+        </h:form>
+        
+        <script src="js/jquery.min.js" type="text/javascript" ></script>
     </h:body>
 </html>
 
