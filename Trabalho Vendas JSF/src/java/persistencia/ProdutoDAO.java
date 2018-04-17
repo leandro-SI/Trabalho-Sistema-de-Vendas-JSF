@@ -50,7 +50,7 @@ public class ProdutoDAO extends DAOBaseJDBC{
     public Produto buscarProdutoDAO(String nome){
         
         Produto produtoProcurado = null;
-        String consulta = "SELECT * FROM produto WHERE name = ?";
+        String consulta = "SELECT * FROM produto WHERE nome = ?";
         
         PreparedStatement stmt;
         
@@ -76,6 +76,26 @@ public class ProdutoDAO extends DAOBaseJDBC{
             
         }
         return produtoProcurado;
+    }
+    
+    public void cadastrarProdutoDAO(Produto produto){
+        
+        String consulta = "INSERT INTO produto(categoria_id, nome, quantidade, preco) "
+                + "VALUES(?, ?, ?, ?)";
+        
+        try{
+            
+            PreparedStatement stmt = conn.prepareStatement(consulta);
+            stmt.setInt(1, produto.getIdCategoria());
+            stmt.setString(2, produto.getNomeProduto());
+            stmt.setInt(3, produto.getQuantidadeProduto());
+            stmt.setDouble(4, produto.getPreco());
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Produto Cadastrado");
+        }catch(SQLException e){
+            System.out.println("Erro cadastro de produto: " + e.getMessage());
+        }
     }
     
 }

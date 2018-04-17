@@ -77,4 +77,22 @@ public class ClienteDAO extends DAOBaseJDBC {
         
         return clienteProcurado;
     }
+    
+    public void cadastrarClienteDAO(Cliente cliente){
+        
+        String consulta = "INSERT INTO cliente(nome, cpf) VALUES(?, ?)";
+        
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(consulta);
+            stmt.setString(1, cliente.getNomeClente());
+            stmt.setString(2, cliente.getCfp());
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Cadastro feito com sucesso");
+        }catch(SQLException e){
+            System.out.println("Erro ao cadastrar" + e.getMessage());
+        }
+    }
+    
 }

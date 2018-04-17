@@ -39,6 +39,11 @@ public class ClienteManageBean {
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário encontrado", "."));
         return "pdv";
     }
+    public String mensagemPositivaCadastro(){
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário Cadastrado", "."));
+        return "cadastro-cliente-ok";
+    }
     
     public String validaCliente(){
         
@@ -52,6 +57,14 @@ public class ClienteManageBean {
         }
         
        // return clienteRetornado;
+    }
+    
+    
+    public String cadastrarClienteManage(){
+        
+        cDAO.cadastrarClienteDAO(cliente);
+        cliente = null;
+        return mensagemPositivaCadastro();
     }
     
     

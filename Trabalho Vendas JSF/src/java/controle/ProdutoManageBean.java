@@ -75,4 +75,18 @@ public class ProdutoManageBean{
         }
     }
     
+    public String mensagemPositivaProduto(){
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Produto cadastrado", "."));
+        return "cadastro-produto-ok";
+    }
+    
+    
+    public String cadastrarProdutManage(){
+        
+        pDAO.cadastrarProdutoDAO(produto);
+        
+        return mensagemPositivaProduto();
+    }
+    
 }

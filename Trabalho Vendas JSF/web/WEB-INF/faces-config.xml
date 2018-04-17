@@ -20,5 +20,57 @@
             <from-outcome>pdv</from-outcome>
             <to-view-id>/caixa.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>relatorios</from-outcome>
+            <to-view-id>/relatorio.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>compra</from-outcome>
+            <to-view-id>/compra.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastro-cliente</from-outcome>
+            <to-view-id>/cadastro_cliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastro-produto</from-outcome>
+            <to-view-id>/cadastro-produto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/relatorio.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltapdv</from-outcome>
+            <to-view-id>/caixa.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/compra.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltapdv</from-outcome>
+            <to-view-id>/caixa.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cadastro_cliente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pdv</from-outcome>
+            <to-view-id>/caixa.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastro-cliente-ok</from-outcome>
+            <to-view-id>/cadastro_cliente.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cadastro-produto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cadastro-produto-ok</from-outcome>
+            <to-view-id>/cadastro-produto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>pdv</from-outcome>
+            <to-view-id>/caixa.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
