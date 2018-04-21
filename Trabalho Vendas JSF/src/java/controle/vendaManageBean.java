@@ -6,44 +6,109 @@
 package controle;
 
 import java.util.List;
-import java.util.Objects;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import modelo.Categoria;
+import modelo.Cliente;
+import modelo.ItemVenda;
 import modelo.Produto;
 import persistencia.CategoriaDAO;
+import persistencia.ClienteDAO;
 import persistencia.ProdutoDAO;
 
 /**
  *
  * @author Leandro
  */
-@ManagedBean(name = "produtoManageBean")
+@ManagedBean(name = "vendasManageBean")
 @RequestScoped
-public class ProdutoManageBean{
+public class vendaManageBean {
+    
+    private ClienteDAO cDAO = new ClienteDAO();
+    private Cliente cliente = new Cliente();
+    private List<Cliente> listaClienteManage;
     
     public ProdutoDAO pDAO = new ProdutoDAO();
     public Produto produto = new Produto();
     private List<Produto> listaProdutoManage;
-    private CategoriaDAO cDAO = new CategoriaDAO();
+    private CategoriaDAO catDAO = new CategoriaDAO();
     private Categoria categoria = new Categoria();
     private List<Categoria> listaCategoriasManage = null;
-  
+    
+    private List<ItemVenda> itensVenda;
+   
+    // METODOS CLIENTE BEAN
 
-     
+   
+    public String mensagemPositivaCadastro(){
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário Cadastrado", "."));
+        return "cadastro-cliente-ok";
+    }
+    
+    public String validaCliente(){
+        
+
+        if(cDAO.buscarClienteDAO(cliente.getCfp()) != null){
+            cliente = cDAO.buscarClienteDAO(cliente.getCfp());
+            return mensagemPositiva();
+        }else{
+            return mensagemNegativa();
+        }
+
+    }
+    
+    
+    public String cadastrarClienteManage(){
+        
+        cDAO.cadastrarClienteDAO(cliente);
+        cliente = null;
+        return mensagemPositivaCadastro();
+    }
+
+    public ClienteDAO getcDAO() {
+        return cDAO;
+    }
+
+    public void setcDAO(ClienteDAO cDAO) {
+        this.cDAO = cDAO;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<Cliente> getListaClienteManage() {
+        return listaClienteManage;
+    }
+
+    public void setListaClienteManage(List<Cliente> listaClienteManage) {
+        this.listaClienteManage = listaClienteManage;
+    }
+    
+    ////////// FIM METODOS CLIENTE BEAN //////////////////////
+    
+    
+    
+    //////////// METODOS PRODUTO BEAN //////////////////////
+    
     
     public String listarCategoriaManage(){
         
-        listaCategoriasManage = cDAO.listarCategoriaDAO();
+        listaCategoriasManage = catDAO.listarCategoriaDAO();
 
         return "cadastro-produto";
     }
     
     public String retornaIdCategoriaManage(String nome){
         
-        produto.setIdCategoria(cDAO.retornaIdCategoria(nome));
+        produto.setIdCategoria(catDAO.retornaIdCategoria(nome));
         
         return "cadastro-produto-ok";
     }
@@ -57,12 +122,12 @@ public class ProdutoManageBean{
         this.categoria = categoria;
     }
 
-    public CategoriaDAO getcDAO() {
-        return cDAO;
+    public CategoriaDAO getcatDAO() {
+        return catDAO;
     }
 
     public void setcDAO(CategoriaDAO cDAO) {
-        this.cDAO = cDAO;
+        this.catDAO = cDAO;
     }
 
     public List<Categoria> getListaCategoriasManage() {
@@ -75,9 +140,6 @@ public class ProdutoManageBean{
     
     
     
-
-    public ProdutoManageBean() {
-    }
 
     public ProdutoDAO getpDAO() {
         return pDAO;
@@ -146,6 +208,10 @@ public class ProdutoManageBean{
         return mensagemPositivaProduto();
     }
     
-   
+    
+    ////////////////// FIM METODOS PRODUTO BEAN ////////////////////////
+    
+    
+    
     
 }

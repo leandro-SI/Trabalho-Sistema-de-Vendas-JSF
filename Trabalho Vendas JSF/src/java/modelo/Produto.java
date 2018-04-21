@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author Leandro
@@ -17,13 +19,6 @@ public class Produto {
     private int quantidadeProduto;
     private double preco;
 
-    public Produto() {
-    }
-
-    public int getIdProduto() {
-        return idProduto;
-    }
-
     public int getIdCategoria() {
         return idCategoria;
     }
@@ -31,8 +26,14 @@ public class Produto {
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
     }
-    
-    
+
+   
+    public Produto() {
+    }
+
+    public int getIdProduto() {
+        return idProduto;
+    }
 
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
@@ -61,6 +62,9 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
     
+    
+   
     
 }

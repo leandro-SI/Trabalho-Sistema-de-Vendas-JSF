@@ -5,12 +5,17 @@
  */
 package persistencia;
 
+import java.util.ArrayList;
+import java.util.List;
+import modelo.ItemVenda;
+import modelo.Venda;
+
 /**
  *
  * @author Leandro
  */
 public class VendaDAO {
     
-    
+ 
     
 }

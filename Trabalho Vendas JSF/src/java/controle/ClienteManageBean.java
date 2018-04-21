@@ -26,17 +26,19 @@ public class ClienteManageBean {
     private Cliente cliente = new Cliente();
     private List<Cliente> listaClienteManage;
    
-    
+
 
     public String mensagemNegativa(){
         FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado", "."));
         return null;
+        
     }
     
     public String mensagemPositiva(){
         FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário encontrado", "."));
+        System.out.println("entrou user achado");
         return "pdv";
     }
     public String mensagemPositivaCadastro(){
@@ -49,14 +51,12 @@ public class ClienteManageBean {
         
 
         if(cDAO.buscarClienteDAO(cliente.getCfp()) != null){
-
             cliente = cDAO.buscarClienteDAO(cliente.getCfp());
             return mensagemPositiva();
         }else{
             return mensagemNegativa();
         }
-        
-       // return clienteRetornado;
+
     }
     
     

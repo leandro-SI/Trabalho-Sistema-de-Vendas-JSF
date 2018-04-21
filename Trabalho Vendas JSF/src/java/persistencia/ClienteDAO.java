@@ -68,11 +68,12 @@ public class ClienteDAO extends DAOBaseJDBC {
                 clienteProcurado.setNomeClente(resultado.getString("nome"));
                 clienteProcurado.setCfp(resultado.getString("cpf"));
                 stmt.close();
+                System.out.println("Procura cliente SQL");
             }else{
                 return null;
             }
         }catch(SQLException e){
-            
+            System.out.println("Erro procurar cliente: " + e.getMessage());
         }
         
         return clienteProcurado;

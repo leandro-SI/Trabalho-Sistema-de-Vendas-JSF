@@ -5,8 +5,9 @@
         <Node id="relatorio.xhtml" x="78" y="227" zoom="true"/>
         <Node id="caixa.xhtml" x="347" y="250" zoom="true"/>
         <Node id="index.xhtml" x="347" y="91" zoom="true"/>
+        <Node id="cadastro-produto.xhtml" x="580" y="147" zoom="true"/>
+        <Node id="cadastro_cliente.xhtml" x="100" y="82" zoom="true"/>
         <Node id="compra.xhtml" x="345" y="326" zoom="true"/>
-        <Node id="cadastro_cliente.xhtml" x="117" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

@@ -25,6 +25,8 @@ public class Categoria {
         this.idCategoria = idCategoria;
     }
 
+   
+
     public String getNomeCategoria() {
         return nomeCategoria;
     }
@@ -32,6 +34,8 @@ public class Categoria {
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
+    
+    
     
     
 }

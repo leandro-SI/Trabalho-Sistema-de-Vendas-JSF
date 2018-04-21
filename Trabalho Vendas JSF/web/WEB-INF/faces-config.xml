@@ -65,7 +65,7 @@
     <navigation-rule>
         <from-view-id>/cadastro-produto.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>cadastro-produto-ok</from-outcome>
+            <from-outcome>cadastro-produto</from-outcome>
             <to-view-id>/cadastro-produto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>

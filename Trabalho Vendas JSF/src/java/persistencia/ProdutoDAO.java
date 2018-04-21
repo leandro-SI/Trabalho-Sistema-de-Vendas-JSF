@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Categoria;
 import modelo.Produto;
 import tools.DAOBaseJDBC;
 
@@ -66,14 +67,15 @@ public class ProdutoDAO extends DAOBaseJDBC{
                produtoProcurado.setNomeProduto(resultado.getString("nome"));
                produtoProcurado.setQuantidadeProduto(resultado.getInt("quantidade"));
                produtoProcurado.setPreco(resultado.getDouble("preco"));
-                stmt.close();
+               stmt.close();
+                System.out.println("Teste Produto Achado");
             }else{
                 return null;
                 
             }
             
         }catch(SQLException e){
-            
+            System.out.println("Erro procurar produt: " + e.getMessage());
         }
         return produtoProcurado;
     }
@@ -86,7 +88,7 @@ public class ProdutoDAO extends DAOBaseJDBC{
         try{
             
             PreparedStatement stmt = conn.prepareStatement(consulta);
-            stmt.setInt(1, produto.getIdCategoria());
+            stmt.setLong(1, produto.getIdProduto());
             stmt.setString(2, produto.getNomeProduto());
             stmt.setInt(3, produto.getQuantidadeProduto());
             stmt.setDouble(4, produto.getPreco());

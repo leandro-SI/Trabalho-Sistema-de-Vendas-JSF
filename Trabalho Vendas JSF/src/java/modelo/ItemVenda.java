@@ -15,6 +15,29 @@ public class ItemVenda {
     private Venda venda;
     private int quantidade;
     private double preco;
+    private String nome;
+    private double valorTotal;
+    
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+    
+    
+    
 
     public ItemVenda() {
     }

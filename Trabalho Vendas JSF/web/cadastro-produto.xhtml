@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastro de Produto</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -15,7 +16,7 @@
             <div class="navbar navbar-default">
                 <div class="container">
                     <div class="navbar-header">
-                        <h:commandLink class="navbar-brand" value="PDV - CAIXA LIVRE" action="pdv"/>
+                        <h:commandLink class="navbar-brand" value="PDV - CAIXA LIVRE" action="caixa.xhtml"/>
                     </div>
   
                         <ul class="nav navbar-nav navbar-right">
@@ -28,7 +29,7 @@
                                             <h:commandLink value="Cadastrar Cliente" action="cadastro-cliente"/>
                                         </li>
                                         <li>
-                                            <h:commandLink value="Cadastrar Produto" action="cadastros"/>
+                                            <h:commandLink value="Cadastrar Produto" action="#{produtoManageBean.listarCategoriaManage()}"/>
                                         </li>
                                         <li>
                                             <h:commandLink value="Editar Cliente" action="cadastros"/>
@@ -61,26 +62,60 @@
                         </ul>
                 </div>
             </div>
+            
             <div class="container">
+                <div class="dados">
                 
                 <div class="form-group form-inline" align="center">
-                    <h:outputLabel for="nome" value="Nome: ">
-                        <h:inputText class="form-control" id="nome" value="#{}"/>
+                    <h:outputLabel for="idProduto" value="Id do Produto: ">
+       
+                        <h:inputText class="form-control" id="idProduto" value="#{produtoManageBean.produto.idProduto}"/>
+                    </h:outputLabel>
+                </div>
+                          
+                <div class="form-group form-inline" align="center">
+                    <h:outputLabel for="nome" value="Nome do Produto: ">
+       
+                        <h:inputText class="form-control" id="nome" value="#{produtoManageBean.produto.nomeProduto}"/>
                     </h:outputLabel>
                 </div>
                 <div class="form-group form-inline" align="center">
-                    <h:outputLabel for="cpf" value="CPF: ">
-                        <h:inputText class="form-control" id="cpf" value="#{}"/>
+                    <h:outputLabel for="quantidade" value="Quantidade: ">
+                        <h:inputText  class="form-control" id="quantidade" value="#{produtoManageBean.produto.quantidadeProduto}"/>
+                    </h:outputLabel>
+                </div>
+                <div class="form-group form-inline" align="center">
+                    <h:outputLabel for="preco" value="Preço: ">
+                        <h:inputText  class="form-control" id="preco" value="#{produtoManageBean.produto.preco}"/>
                     </h:outputLabel>
                 </div>
                 <div class="form-group form-inline" align="center">
                     <h:commandButton value="Cadastrar" class="btn btn-primary btn-aumentar"
-                                     action="#{clienteManageBean.cadastrarClienteManage()}"/>
+                                     action="#{produtoManageBean.cadastrarProdutManage()}"/>
+                </div>
+            </div>
+                <div id="tabela-categoria">
+                    <h:dataTable value="#{produtoManageBean.listaCategoriasManage}" var="objeto" cellspacing="2" border="2">
+                        <h:column>
+                             <f:facet name="header">
+                        <h:outputLabel value="ID" />
+                            </f:facet>
+                            <h:outputText value="#{objeto.idCategoria}" />
+                        </h:column>
+                        
+                        <h:column>
+                             <f:facet name="header">
+                        <h:outputLabel value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{objeto.nomeCategoria}" />
+                        </h:column>
+                        
+                    </h:dataTable>
                 </div>
             </div>
             
         </h:form>
-        <script src="js/jquery.min.js" type="text/javascript" ></script>
+        <!-- <script src="js/jquery.min.js" type="text/javascript" ></script>-->
     </h:body>
 </html>
 
